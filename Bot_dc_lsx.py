@@ -7,6 +7,9 @@ from PIL import Image
 from io import BytesIO
 import os
 from dotenv import load_dotenv
+import  threading
+from flask import Flask
+
 
 
 load_dotenv()
@@ -98,6 +101,18 @@ async def on_message(message):
         except requests.exceptions.RequestException as e:
             print("Error ", e)
 
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Bot corriendo"
+
+def run_web():
+    port = int(os.environ.get("PORT", 3000))
+    app.run(host='0.0.0.0', port=port)
+
+
+threading.Thread(target=run_web).start()
 
 # Ejecuta el bot
 client.run(os.getenv('DISCORD_TOKEN'))
