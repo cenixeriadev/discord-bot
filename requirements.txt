@@ -15,7 +15,7 @@ discord==2.3.2
 discord.py==2.5.2
 dotenv==0.9.9
 fastavro==1.11.1
-filelock==3.18.0
+filelock==3.20.3
 Flask==3.1.1
 frozenlist==1.7.0
 fsspec==2025.5.1
